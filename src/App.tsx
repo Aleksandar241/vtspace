@@ -8,7 +8,7 @@ const App = (): JSX.Element => {
 
   return (
     <div>
-      <Button title="test" onClick={onClickHandler} />
+      <Button title="Test" onClick={onClickHandler} />
     </div>
   );
 };
