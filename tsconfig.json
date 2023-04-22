@@ -24,6 +24,7 @@
       "@organisms": ["./src/components/organisms"],
       "@pages": ["./src/pages"],
       "@router": ["src/router"],
+      "@utils": ["src/utils"],
       "@styles": ["./src/styles/styles.scss"],
     }
   },
