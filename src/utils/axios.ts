@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-const axiosInstance = axios.create({ baseURL: 'http://localhost:3001/api/' });
+const axiosInstance = axios.create({ baseURL: import.meta.env.VITE_API_URL });
 
 const config = {
   headers: {
-    'Access-Control-Allow-Origin': 'http://localhost:3001/api/',
+    'Access-Control-Allow-Origin': import.meta.env.VITE_API_URL,
     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS'
   },
   withCredentials: true

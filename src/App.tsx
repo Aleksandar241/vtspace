@@ -6,7 +6,7 @@ const App = (): JSX.Element => {
   const login = useCallback(async () => {
     const res = await post('login', {
       email: 'vasica241@gmail.com',
-      password: '123456'
+      password: '12345678'
     });
   }, []);
 
@@ -21,6 +21,7 @@ const App = (): JSX.Element => {
 
   return (
     <div>
+      {}
       <Button title="Login" onClick={login} />
       <Button title="Logout" onClick={logout} />
       <Button title="Get posts" onClick={getPosts} />
