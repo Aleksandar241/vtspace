@@ -25,6 +25,7 @@
       "@pages": ["./src/pages"],
       "@router": ["src/router"],
       "@utils": ["src/utils"],
+      "@hooks": ["src/hooks"],
       "@styles": ["./src/styles/styles.scss"],
     }
   },

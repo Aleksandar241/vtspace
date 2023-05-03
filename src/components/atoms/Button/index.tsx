@@ -3,11 +3,18 @@ import styles from './button.module.scss';
 
 type ButtonProps = {
   title?: string;
-  onClick: () => void;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 };
 
-const Button: FC<ButtonProps> = ({ title, onClick }): JSX.Element => (
-  <button className={styles.button} onClick={onClick}>
+const Button: FC<ButtonProps> = ({
+  title,
+  onClick,
+  disabled = false,
+  type = 'button'
+}): JSX.Element => (
+  <button className={styles.button} type={type} onClick={() => onClick?.()} disabled={disabled}>
     {title}
   </button>
 );
