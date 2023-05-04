@@ -1,5 +1,5 @@
 import { get, post } from './axios';
-import { loginValidationScheme } from './validators';
+import { loginValidationScheme, signupValidationScheme } from './validators';
 import queryClient from './queryClient';
 
-export { get, post, loginValidationScheme, queryClient };
+export { queryClient, get, post, loginValidationScheme, signupValidationScheme };
