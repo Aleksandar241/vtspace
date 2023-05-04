@@ -1,12 +1,17 @@
-import { RouterProvider } from 'react-router-dom';
-import router from '@router';
+import Router from '@routers';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from '@utils';
+import { Layout } from '@molecules';
+import { AuthContextProvider } from '@contexts';
 
 const App = (): JSX.Element => (
-  <QueryClientProvider client={queryClient}>
-    <RouterProvider router={router} />;
-  </QueryClientProvider>
+  <AuthContextProvider>
+    <QueryClientProvider client={queryClient}>
+      <Layout>
+        <Router />
+      </Layout>
+    </QueryClientProvider>
+  </AuthContextProvider>
 );
 
 export default App;

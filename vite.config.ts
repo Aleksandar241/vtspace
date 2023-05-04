@@ -12,9 +12,10 @@ export default defineConfig({
       { find: '@molecules', replacement: path.resolve(__dirname, 'src/components/molecules') },
       { find: '@organisms', replacement: path.resolve(__dirname, 'src/components/organisms') },
       { find: '@pages', replacement: path.resolve(__dirname, 'src/pages') },
-      { find: '@router', replacement: path.resolve(__dirname, 'src/router') },
+      { find: '@routers', replacement: path.resolve(__dirname, 'src/routers') },
       { find: '@styles', replacement: path.resolve(__dirname, 'src/styles/styles.scss') },
       { find: '@utils', replacement: path.resolve(__dirname, 'src/utils') },
+      { find: '@contexts', replacement: path.resolve(__dirname, 'src/contexts') },
       { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') }
     ]
   },

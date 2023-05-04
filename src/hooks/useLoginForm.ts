@@ -1,5 +1,6 @@
 import { useMutation } from 'react-query';
 import { post, loginValidationScheme } from '@utils';
+import useAuth from './useAuth';
 
 type LoginParams = {
   email: string;
@@ -19,12 +20,12 @@ type UseLoginFormReturn = {
 };
 
 const useLoginForm = (): UseLoginFormReturn => {
+  const { setToken } = useAuth();
+
   const { mutate, isLoading } = useMutation(
     async ({ email, password }: LoginParams) => post('login', { email, password }),
     {
-      onSuccess: (res) => {
-        console.log(res?.data);
-      },
+      onSuccess: (res) => setToken(res?.data?.token),
       onError: (err) => {
         console.log(err);
       }
