@@ -24,7 +24,7 @@ const UpdateUserForm: FC<UpdateUserFormType> = ({ user, onSubmitUser }): JSX.Ele
       <Formik initialValues={user || initialValues} onSubmit={onSubmitHandler}>
         <Form className={styles.container}>
           <Field type="text" name="name" />
-          <Field type="text" name="description" />
+          <Field type="text" name="surname" />
           <Field type="text" name="image" />
           <Button type="submit" disabled={isLoading} title="Login" />
         </Form>
