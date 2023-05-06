@@ -23,8 +23,8 @@ const UserCard: FC = (): JSX.Element => {
         </h2>
         <p className={styles.user_card_description}>{user?.role}</p>
         <Button type="button" title="Profile" />
-        <Button onClick={() => setShowUserModal(true)} title="Edit user" />
-        <Button onClick={() => setShowPostModal(true)} title="Create post" />
+        <Button onClick={() => setShowUserModal(true)} title="Izmeni podatke" />
+        <Button onClick={() => setShowPostModal(true)} title="Kreiraj novu objavu" />
       </aside>
       <Modal visible={showUserModal} onClose={() => setShowUserModal(false)}>
         <UpdateUserForm user={user} onSubmitUser={() => setShowUserModal(false)} />

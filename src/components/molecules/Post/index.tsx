@@ -16,7 +16,9 @@ const Post: FC<PostType> = ({ post }): JSX.Element => {
 
   return (
     <article className={styles.post}>
-      <p className={styles.post_date}>06.05.2023. - 18:30h</p>
+      <p className={styles.post_date}>
+        {post?.createdAt ? new Date(post?.createdAt).toLocaleString() : ''}
+      </p>
       <div className={styles.post_body}>
         <div className={styles.post_info}>
           <Image source={post?.belongsTo?.image} />

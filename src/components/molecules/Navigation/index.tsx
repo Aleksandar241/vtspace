@@ -12,7 +12,7 @@ const Navigation: FC = (): JSX.Element | null => {
       <div className={styles.navigation_content}>
         <h1 className={styles.navigation_logo}>VTSpace</h1>
         <div className={styles.navigation_links}>
-          <Button type="button" title="Logout" onClick={logout} />
+          <Button type="button" title="Odjava" onClick={logout} />
         </div>
       </div>
     </nav>
