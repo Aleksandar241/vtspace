@@ -1,6 +1,8 @@
 import { useMutation } from 'react-query';
+import { toast } from 'react-toastify';
 import { post, loginValidationScheme } from '@utils';
 import useAuth from './useAuth';
+import { loginPath } from '@constants';
 
 type LoginParams = {
   email: string;
@@ -23,11 +25,11 @@ const useLoginForm = (): UseLoginFormReturn => {
   const { setToken } = useAuth();
 
   const { mutate, isLoading } = useMutation(
-    async ({ email, password }: LoginParams) => post('login', { email, password }),
+    async ({ email, password }: LoginParams) => post(loginPath, { email, password }),
     {
       onSuccess: (res) => setToken(res?.data?.token),
-      onError: (err) => {
-        console.log(err);
+      onError: (err: any) => {
+        toast(err?.message ?? 'Ups. Nesto nije kako treba');
       }
     }
   );

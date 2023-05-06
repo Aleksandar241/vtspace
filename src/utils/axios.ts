@@ -10,7 +10,12 @@ const config = {
   withCredentials: true
 };
 
-export const get = async (path: string) => await axiosInstance.get(path, config);
+export const get = async (url: string) => await axiosInstance.get(url, config);
+
+export const del = async (url: string) => await axiosInstance.delete(url, config);
 
 export const post = async (url: string, body: object = {}) =>
   await axiosInstance.post(url, { ...body }, config);
+
+export const put = async (url: string, body: object = {}) =>
+  await axiosInstance.put(url, { ...body }, config);

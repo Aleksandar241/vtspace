@@ -27,6 +27,8 @@
       "@utils": ["src/utils"],
       "@hooks": ["src/hooks"],
       "@contexts": ["src/contexts"],
+      "@models": ["src/models"],
+      "@constants": ["src/constants"],
       "@styles": ["./src/styles/styles.scss"],
     }
   },
