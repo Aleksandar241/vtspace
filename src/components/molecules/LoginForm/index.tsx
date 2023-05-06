@@ -12,9 +12,9 @@ const LoginForm: FC = (): JSX.Element => {
       <p>LOGIN</p>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
         <Form className={styles.container}>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" placeholder="Email" />
           <ErrorMessage name="email" component="div" />
-          <Field type="password" name="password" />
+          <Field type="password" name="password" placeholder="Password" />
           <ErrorMessage name="password" component="div" />
           <Button type="submit" disabled={isLoading} title="Login" />
         </Form>

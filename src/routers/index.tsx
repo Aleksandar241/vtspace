@@ -7,18 +7,17 @@ import AuthRoutes from './AuthRoutes';
 
 const Router: FC = (): JSX.Element => {
   const { token } = useAuth();
-  
+
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<ProtectedRoutes token={token} />}>
           <Route index element={<Home />} path="/" />
-          <Route path="*" element={<NotFound />} />
         </Route>
         <Route element={<AuthRoutes token={token} />}>
-          <Route element={<Auth />} path="/login" />
-          <Route path="*" element={<NotFound />} />
+          <Route index element={<Auth />} path="/login" />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,26 +1,43 @@
-import { FC } from 'react';
+import { FC, memo, useState } from 'react';
 import { Image } from '@atoms';
-
+import { PostModel } from '@models';
+import { CreatePostForm, Modal } from '@molecules';
+import { Button } from '@atoms';
+import { useDeletePost } from '@hooks';
 import styles from './post.module.scss';
 
-const Home: FC = (): JSX.Element => {
+type PostType = {
+  post: PostModel;
+};
+
+const Post: FC<PostType> = ({ post }): JSX.Element => {
+  const { onDelete, isLoading } = useDeletePost();
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <article className={styles.post}>
       <p className={styles.post_date}>06.05.2023. - 18:30h</p>
       <div className={styles.post_body}>
         <div className={styles.post_info}>
-          <Image source='https://picsum.photos/200/200'/>
-          <p className={styles.post_username}>User Name</p>
-        </div>
-        <div className={styles.post_content}>
-          <h2 className={styles.post_title}>Lorem ipsum dolor</h2>
-          <p className={styles.post_description}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse tenetur velit, totam facere inventore reprehenderit voluptas quos placeat error vero assumenda nesciunt repellat laboriosam debitis libero excepturi officia consequuntur doloremque!
+          <Image source={post?.belongsTo?.image} />
+          <p className={styles.post_username}>
+            {post.belongsTo?.name} {post.belongsTo?.surname}
           </p>
         </div>
+        <div className={styles.post_content}>
+          <h2 className={styles.post_title}>{post.title}</h2>
+          <p className={styles.post_description}>{post?.description}</p>
+        </div>
+        <Modal visible={showModal} onClose={() => setShowModal(false)}>
+          <CreatePostForm post={post} onSubmitPost={() => setShowModal(false)} />
+        </Modal>
+        <Button onClick={() => setShowModal(true)} title="Edit" />
+        {post?.id && post?.belongsToId && (
+          <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
+        )}
       </div>
     </article>
   );
 };
 
-export default Home;
+export default memo(Post);

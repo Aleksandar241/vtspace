@@ -16,7 +16,10 @@ export default defineConfig({
       { find: '@styles', replacement: path.resolve(__dirname, 'src/styles/styles.scss') },
       { find: '@utils', replacement: path.resolve(__dirname, 'src/utils') },
       { find: '@contexts', replacement: path.resolve(__dirname, 'src/contexts') },
-      { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') }
+      { find: '@models', replacement: path.resolve(__dirname, 'src/models') },
+      { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') },
+      { find: '@constants', replacement: path.resolve(__dirname, 'src/constants') },
+      { find: '@images', replacement: path.resolve(__dirname, 'src/assets/images') }
     ]
   },
   css: {

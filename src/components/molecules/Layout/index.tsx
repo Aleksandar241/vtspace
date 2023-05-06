@@ -14,7 +14,7 @@ const Layout: FC<LayoutProps> = ({ children }): JSX.Element => {
 
   return (
     <div className={styles.container}>
-      {token && (<Navigation />)}
+      {token && <Navigation />}
       {children}
       <Footer />
     </div>

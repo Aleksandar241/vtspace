@@ -1,29 +1,39 @@
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
+import { useQuery } from 'react-query';
+import { UserModel } from '@models';
+import { UpdateUserForm, Modal, CreatePostForm } from '@molecules';
 import { Button, Image } from '@atoms';
-import { Modal } from '@molecules';
+import { get } from '@utils';
+import { userKey, userPath } from '@constants';
 
 import styles from './user_card.module.scss';
 
-const Navigation: FC = (): JSX.Element => {
-  const [showModal, setShowModal] = useState(false);
+const UserCard: FC = (): JSX.Element => {
+  const [showUserModal, setShowUserModal] = useState(false);
+  const [showPostModal, setShowPostModal] = useState(false);
+  const { data } = useQuery(userKey, () => get(userPath));
+  const user: UserModel = data?.data;
 
   return (
     <div>
       <aside className={styles.user_card}>
-        <Image source='https://picsum.photos/200/200' />
-        <h2 className={styles.user_card_username}>User Name</h2>
-        <p className={styles.user_card_description}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut ratione quos dolorum beatae voluptatem perspiciatis consequatur amet. Dolores, aliquam? Perspiciatis ipsa nostrum excepturi quaerat praesentium dicta quo inventore, minima ipsum.
-        </p>
-        <Button type='button' title='Profile'/>
+        <Image source={user?.image} />
+        <h2 className={styles.user_card_username}>
+          {user?.name} {user?.surname}
+        </h2>
+        <p className={styles.user_card_description}>{user?.role}</p>
+        <Button type="button" title="Profile" />
+        <Button onClick={() => setShowUserModal(true)} title="Edit user" />
+        <Button onClick={() => setShowPostModal(true)} title="Create post" />
       </aside>
-
-      <Modal visible={showModal} onClose={() => setShowModal(false)}>
-        <div>Modal content</div>
+      <Modal visible={showUserModal} onClose={() => setShowUserModal(false)}>
+        <UpdateUserForm user={user} onSubmitUser={() => setShowUserModal(false)} />
       </Modal>
-      <Button onClick={() => setShowModal(true)} title="Create post" />
+      <Modal visible={showPostModal} onClose={() => setShowPostModal(false)}>
+        <CreatePostForm onSubmitPost={() => setShowPostModal(false)} />
+      </Modal>
     </div>
   );
 };
 
-export default Navigation;
+export default memo(UserCard);

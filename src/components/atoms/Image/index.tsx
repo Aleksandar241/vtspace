@@ -1,15 +1,13 @@
 import { FC } from 'react';
-
+import { profilePlaceholder } from '@images';
 import styles from './image.module.scss';
 
 type ImageProps = {
-  source?: string;
+  source?: string | null;
 };
 
-const Navigation: FC<ImageProps> = ({source}): JSX.Element => {
-  return (
-    <img src={source} className={styles.image} alt="Image" />
-  );
-};
+const Image: FC<ImageProps> = ({ source }): JSX.Element => (
+  <img src={source ? source : profilePlaceholder} className={styles.image} alt="Image" />
+);
 
-export default Navigation;
+export default Image;
