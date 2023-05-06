@@ -11,15 +11,15 @@ const SignupForm: FC = (): JSX.Element => {
       <p>SIGN UP</p>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
         <Form className={styles.container}>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" placeholder="Email" />
           <ErrorMessage name="email" component="div" />
-          <Field type="text" name="name" />
+          <Field type="text" name="name" placeholder="Ime" />
           <ErrorMessage name="name" component="div" />
-          <Field type="text" name="surname" />
+          <Field type="text" name="surname" placeholder="Prezime" />
           <ErrorMessage name="surname" component="div" />
-          <Field type="password" name="password" />
+          <Field type="password" name="password" placeholder="Password" />
           <ErrorMessage name="password" component="div" />
-          <Field type="password" name="confirmPassword" />
+          <Field type="password" name="confirmPassword" placeholder="Potvrdi password" />
           <ErrorMessage name="confirmPassword" component="div" />
           <Button type="submit" disabled={isLoading} title="Signup" />
         </Form>

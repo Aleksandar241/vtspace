@@ -18,7 +18,8 @@ export default defineConfig({
       { find: '@contexts', replacement: path.resolve(__dirname, 'src/contexts') },
       { find: '@models', replacement: path.resolve(__dirname, 'src/models') },
       { find: '@hooks', replacement: path.resolve(__dirname, 'src/hooks') },
-      { find: '@constants', replacement: path.resolve(__dirname, 'src/constants') }
+      { find: '@constants', replacement: path.resolve(__dirname, 'src/constants') },
+      { find: '@images', replacement: path.resolve(__dirname, 'src/assets/images') }
     ]
   },
   css: {

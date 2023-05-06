@@ -29,6 +29,7 @@
       "@contexts": ["src/contexts"],
       "@models": ["src/models"],
       "@constants": ["src/constants"],
+      "@images": ["src/assets/images"],
       "@styles": ["./src/styles/styles.scss"],
     }
   },

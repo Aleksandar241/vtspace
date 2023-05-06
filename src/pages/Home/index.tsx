@@ -1,22 +1,15 @@
-import { FC, useState } from 'react';
-import { Modal, CreatePostForm, User } from '@molecules';
-import { Button } from '@atoms';
+import { FC } from 'react';
 import { PostList } from '@organisms';
+import { UserCard } from '@molecules';
+
 import styles from './home.module.scss';
 
 const Home: FC = (): JSX.Element => {
-  const [showModal, setShowModal] = useState(false);
-
   return (
-    <div>
-      Posts
+    <main className={styles.home}>
       <PostList />
-      <User />
-      <Modal visible={showModal} onClose={() => setShowModal(false)}>
-        <CreatePostForm onSubmitPost={() => setShowModal(false)} />
-      </Modal>
-      <Button onClick={() => setShowModal(true)} title="Create post" />
-    </div>
+      <UserCard />
+    </main>
   );
 };
 

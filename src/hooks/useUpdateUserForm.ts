@@ -15,7 +15,7 @@ const initialValues: UserModel = {
   id: null,
   name: '',
   surname: '',
-  image: null,
+  image: '',
   role: Roles.STUDENT,
   email: null
 };

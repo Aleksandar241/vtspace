@@ -29,9 +29,9 @@ const initialValues: PostModel = {
   belongsToId: null,
   belongsTo: {
     id: null,
-    name: null,
-    surname: null,
-    image: null,
+    name: '',
+    surname: '',
+    image: '',
     role: Roles.STUDENT
   }
 };
