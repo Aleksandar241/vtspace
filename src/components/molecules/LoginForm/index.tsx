@@ -9,15 +9,18 @@ const LoginForm: FC = (): JSX.Element => {
   const { initialValues, onSubmit, isLoading, validationScheme } = useLoginForm();
   return (
     <>
-      <p>LOGIN</p>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
-        <Form className={styles.container}>
-          <Field type="email" name="email" />
-          <ErrorMessage name="email" component="div" />
-          <Field type="password" name="password" />
-          <ErrorMessage name="password" component="div" />
-          <Button type="submit" disabled={isLoading} title="Login" />
-        </Form>
+        <div className={styles.loginForm}>
+          <Form className={styles.container}>
+            <h3 className={styles.inputHeader}>LOGIN</h3>
+            <p className={styles.inputText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consequat orci, et blandit odio. </p>
+            <Field className={styles.inputField} type="email" name="email" placeholder="email" />
+            <ErrorMessage name="email" component="div" />
+            <Field className={styles.inputField} type="password" name="password" placeholder="password"/>
+            <ErrorMessage name="password" component="div" />
+            <Button type="submit" disabled={isLoading} title="Login" />
+          </Form>
+        </div>
       </Formik>
     </>
   );

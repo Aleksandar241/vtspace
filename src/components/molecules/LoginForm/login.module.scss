@@ -4,4 +4,22 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+}
+
+.inputField {
+    width: 50%;
+    height: 30px;
+    margin: 10px auto;
+}
+
+.loginForm {
+    width: 40%;
+    margin: 10px;
+}
+.inputHeader{
+    margin: 2px 0;
+}
+.inputText{
+    margin: 2px 0;
 }

@@ -1,5 +1,13 @@
 @use '@styles' as styles;
 
 .button {
-    background-color: styles.$primary;
+    background-color: styles.$primary-color;
+}
+.header{
+    text-align: center;
+}
+
+.loginContainer {
+    display: flex;
+    margin: 0 auto;
 }

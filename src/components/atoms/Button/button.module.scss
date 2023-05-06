@@ -1,5 +1,14 @@
 @use '@styles' as styles;
 
 .button {
-    background-color: styles.$primary;
+    background-color: styles.$primary-color;
+    color: styles.$text-color;
+    text-align: center;
+    width: 280px;
+    height: 39px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid styles.$white-color;
+    margin: 10px auto;
+
 }
