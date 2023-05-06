@@ -1,2 +1,4 @@
 import AuthForms from './AuthForms';
-export { AuthForms };
+import PostList from './PostList';
+
+export { AuthForms, PostList };

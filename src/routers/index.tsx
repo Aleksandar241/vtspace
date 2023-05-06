@@ -7,7 +7,7 @@ import AuthRoutes from './AuthRoutes';
 
 const Router: FC = (): JSX.Element => {
   const { token } = useAuth();
-
+  
   return (
     <BrowserRouter>
       <Routes>

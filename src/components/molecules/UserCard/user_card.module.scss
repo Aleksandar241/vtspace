@@ -1,0 +1,24 @@
+@use '@styles' as styles;
+
+.user_card {
+  max-width: 280px;
+  border: 1px solid styles.$primary-color;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+
+.user_card_username,
+.user_card_description {
+  color: styles.$text-color;
+}
+
+.user_card_username {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.user_card_description {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
