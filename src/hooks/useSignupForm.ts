@@ -1,5 +1,7 @@
 import { useMutation } from 'react-query';
+import { toast } from 'react-toastify';
 import { post, signupValidationScheme } from '@utils';
+import { signupPath } from '@constants';
 
 type SignupParams = {
   email: string;
@@ -30,13 +32,13 @@ type UseSignupFormReturn = {
 const useSignupForm = (): UseSignupFormReturn => {
   const { mutate, isLoading } = useMutation(
     async ({ email, password, surname, name }: SignupParams) =>
-      post('signup', { email, password, surname, name }),
+      post(signupPath, { email, password, surname, name }),
     {
       onSuccess: (res) => {
-        console.log(res?.data);
+        toast(res?.data || 'Verifikacioni mejl je poslat');
       },
-      onError: (err) => {
-        console.log(err);
+      onError: (err: any) => {
+        toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
       }
     }
   );

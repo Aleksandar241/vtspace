@@ -1,14 +1,12 @@
 import { FC } from 'react';
-import { Outlet, Navigate, useLocation } from 'react-router-dom';
+import { Outlet, Navigate } from 'react-router-dom';
 
 type ProtectedRoutesProps = {
-  token?: string | null;
+  userId?: string | null;
 };
 
-const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ token }): JSX.Element => {
-  const location = useLocation();
-
-  return token ? <Outlet /> : <Navigate to="/login" state={{ from: location }} replace />;
+const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ userId }): JSX.Element => {
+  return userId ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoutes;

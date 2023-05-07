@@ -1,5 +1,8 @@
 @use '@styles' as styles;
 
-.button {
-    background-color: styles.$primary;
+.home {
+    display: flex;
+    max-width: 1200px;
+    margin: 25px auto;
+    gap: 25px;
 }

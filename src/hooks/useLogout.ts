@@ -1,13 +1,15 @@
 import { useMutation } from 'react-query';
+import { toast } from 'react-toastify';
 import useAuth from './useAuth';
 import { post } from '@utils';
+import { logoutPath } from '@constants';
 
 const useLogout = () => {
-  const { setToken } = useAuth();
-  const { mutate } = useMutation(async () => post('logout'), {
-    onSuccess: () => setToken(null),
-    onError: (err) => {
-      console.log(err);
+  const { setUser } = useAuth();
+  const { mutate } = useMutation(async () => post(logoutPath), {
+    onSuccess: () => setUser(null),
+    onError: (err: any) => {
+      toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
     }
   });
 

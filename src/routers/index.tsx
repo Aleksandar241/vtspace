@@ -6,19 +6,18 @@ import ProtectedRoutes from './ProtectedRoutes';
 import AuthRoutes from './AuthRoutes';
 
 const Router: FC = (): JSX.Element => {
-  const { token } = useAuth();
+  const { user } = useAuth();
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<ProtectedRoutes token={token} />}>
+        <Route element={<ProtectedRoutes userId={user?.id} />}>
           <Route index element={<Home />} path="/" />
-          <Route path="*" element={<NotFound />} />
         </Route>
-        <Route element={<AuthRoutes token={token} />}>
-          <Route element={<Auth />} path="/login" />
-          <Route path="*" element={<NotFound />} />
+        <Route element={<AuthRoutes userId={user?.id} />}>
+          <Route index element={<Auth />} path="/login" />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
