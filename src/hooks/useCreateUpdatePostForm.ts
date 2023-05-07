@@ -41,9 +41,12 @@ const useCreateUpdatePostForm = (): UseCreateUpdatePostFormReturn => {
     async ({ id, title, description, belongsToId }: PostSubmitType) =>
       postCallback({ id, title, description, belongsToId }),
     {
-      onSuccess: () => queryClient.invalidateQueries(postsKey),
+      onSuccess: () => {
+        toast('Objava je uspesno kreirana.');
+        queryClient.invalidateQueries(postsKey);
+      },
       onError: (err: any) => {
-        toast(err?.message ?? 'Ups. Nesto nije kako treba');
+        toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
       }
     }
   );

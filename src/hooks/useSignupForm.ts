@@ -38,7 +38,7 @@ const useSignupForm = (): UseSignupFormReturn => {
         toast(res?.data || 'Verifikacioni mejl je poslat');
       },
       onError: (err: any) => {
-        toast(err?.message ?? 'Ups. Nesto nije kako treba');
+        toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
       }
     }
   );

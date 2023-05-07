@@ -22,14 +22,14 @@ type UseLoginFormReturn = {
 };
 
 const useLoginForm = (): UseLoginFormReturn => {
-  const { setToken } = useAuth();
+  const { setUser } = useAuth();
 
   const { mutate, isLoading } = useMutation(
     async ({ email, password }: LoginParams) => post(loginPath, { email, password }),
     {
-      onSuccess: (res) => setToken(res?.data?.token),
+      onSuccess: (res) => setUser(res?.data),
       onError: (err: any) => {
-        toast(err?.message ?? 'Ups. Nesto nije kako treba');
+        toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
       }
     }
   );

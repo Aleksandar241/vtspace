@@ -10,11 +10,11 @@ type LayoutProps = {
 };
 
 const Layout: FC<LayoutProps> = ({ children }): JSX.Element => {
-  const { token } = useAuth();
+  const { user } = useAuth();
 
   return (
     <div className={styles.container}>
-      {token && <Navigation />}
+      {user?.id && <Navigation />}
       {children}
       <Footer />
     </div>

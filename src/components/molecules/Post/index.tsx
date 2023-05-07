@@ -3,7 +3,7 @@ import { Image } from '@atoms';
 import { PostModel } from '@models';
 import { CreatePostForm, Modal } from '@molecules';
 import { Button } from '@atoms';
-import { useDeletePost } from '@hooks';
+import { useDeletePost, useHasPerrmision } from '@hooks';
 import styles from './post.module.scss';
 
 type PostType = {
@@ -11,8 +11,9 @@ type PostType = {
 };
 
 const Post: FC<PostType> = ({ post }): JSX.Element => {
-  const { onDelete, isLoading } = useDeletePost();
   const [showModal, setShowModal] = useState(false);
+  const { onDelete, isLoading } = useDeletePost();
+  const hasPermission = useHasPerrmision(post?.belongsToId);
 
   return (
     <article className={styles.post}>
@@ -33,8 +34,8 @@ const Post: FC<PostType> = ({ post }): JSX.Element => {
         <Modal visible={showModal} onClose={() => setShowModal(false)}>
           <CreatePostForm post={post} onSubmitPost={() => setShowModal(false)} />
         </Modal>
-        <Button onClick={() => setShowModal(true)} title="Edit" />
-        {post?.id && post?.belongsToId && (
+        {hasPermission && <Button onClick={() => setShowModal(true)} title="Edit" />}
+        {hasPermission && post?.id && (
           <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
         )}
       </div>
