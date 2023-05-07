@@ -23,9 +23,14 @@ const UpdateUserForm: FC<UpdateUserFormType> = ({ user, onSubmitUser }): JSX.Ele
     <>
       <Formik initialValues={user || initialValues} onSubmit={onSubmitHandler}>
         <Form className={styles.container}>
-          <Field type="text" name="name" placeholder="Ime" />
-          <Field type="text" name="surname" placeholder="Prezime" />
-          <Field type="text" name="image" placeholder="Url fotografije" />
+          <Field type="text" className={styles.inputField} name="name" placeholder="Ime" />
+          <Field type="text" className={styles.inputField} name="surname" placeholder="Prezime" />
+          <Field
+            type="text"
+            className={styles.inputField}
+            name="image"
+            placeholder="Url fotografije"
+          />
           <Button type="submit" disabled={isLoading} title="Izmeni podatke" />
         </Form>
       </Formik>

@@ -22,9 +22,10 @@ const UserCard: FC = (): JSX.Element => {
           {user?.name} {user?.surname}
         </h2>
         <p className={styles.user_card_description}>{user?.role}</p>
-        <Button type="button" title="Profile" />
-        <Button onClick={() => setShowUserModal(true)} title="Izmeni podatke" />
-        <Button onClick={() => setShowPostModal(true)} title="Kreiraj novu objavu" />
+        <div className={styles.user_card_btn_container}>
+          <Button onClick={() => setShowUserModal(true)} title="Izmeni podatke" />
+          <Button onClick={() => setShowPostModal(true)} title="Kreiraj novu objavu" />
+        </div>
       </aside>
       <Modal visible={showUserModal} onClose={() => setShowUserModal(false)}>
         <UpdateUserForm user={user} onSubmitUser={() => setShowUserModal(false)} />

@@ -5,16 +5,15 @@
   background: linear-gradient(270deg, #264653 0%, #75B9A9 102.21%);
   display: flex;
   justify-content: space-between;
-}
-
-.navigation_content {
-  width: 1250px;
-  display: flex;
-  justify-content: space-between;
+  padding: 15px 30px;
   align-items: center;
-  margin: 15px auto;
 }
-
 .navigation_logo {
   color: styles.$white-color;
+  flex: 3;
+}
+
+.navigation_links {
+  flex: 1;
+  justify-content: flex-end;
 }

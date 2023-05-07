@@ -15,11 +15,8 @@ const Modal: FC<ModalProps> = ({ children, visible, onClose }): JSX.Element | nu
 
   return ReactDom.createPortal(
     <>
-      <div className={styles.overlay}>
-        <div className={styles.modal}>
-          <Button onClick={onClose} title="Zatvori modal" />
-          {children}
-        </div>
+      <div className={styles.overlay} onClick={onClose}>
+        <div className={styles.modal}>{children}</div>
       </div>
     </>,
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

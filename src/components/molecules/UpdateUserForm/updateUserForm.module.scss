@@ -1,2 +1,13 @@
 @use '@styles' as styles;
 
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inputField {
+    width: 60%;
+    height: 30px;
+    margin: 10px auto;
+}

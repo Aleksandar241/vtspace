@@ -26,8 +26,8 @@ const CreateUpdatePostForm: FC<CreateUpdatePostFormType> = ({
     <>
       <Formik initialValues={post || initialValues} onSubmit={onSubmitHandler}>
         <Form className={styles.container}>
-          <Field type="text" name="title" placeholder="Naslov" />
-          <Field type="text" name="description" placeholder="Opis" />
+          <Field type="text" className={styles.inputField} name="title" placeholder="Naslov" />
+          <Field type="text" className={styles.inputField} name="description" placeholder="Opis" />
           <Button
             type="submit"
             disabled={isLoading}
