@@ -1,5 +1,13 @@
-@use '@styles' as styles;
+.page404 {
+    font-size: 30px;
+    text-align: center;
+    font-style: italic;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
 
-.button {
-    background-color: styles.$primary-color;
+.page404 img {
+    max-width: 300px;
 }

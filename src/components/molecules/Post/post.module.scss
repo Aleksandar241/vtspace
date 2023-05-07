@@ -24,6 +24,7 @@
 
 .post_content {
   flex-basis: 100%;
+  position: relative;
 }
 
 .post_title {
@@ -40,4 +41,15 @@
 
 .post_username {
   text-align: center;
+}
+
+.post_buttons {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+}
+
+.post_buttons button {
+  margin: 0 5px;
+  max-width: fit-content;
 }

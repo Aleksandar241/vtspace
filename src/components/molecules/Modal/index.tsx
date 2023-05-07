@@ -17,8 +17,8 @@ const Modal: FC<ModalProps> = ({ children, visible, onClose }): JSX.Element | nu
     <>
       <div className={styles.overlay}>
         <div className={styles.modal}>
-          <Button onClick={onClose} title="Zatvori modal" />
           {children}
+          <Button onClick={onClose} title="Zatvori modal" />
         </div>
       </div>
     </>,

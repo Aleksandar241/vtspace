@@ -1,23 +1,28 @@
 @use '@styles' as styles;
 
-h1 {
-    color: styles.$primary-color;
-}
-
-.button {
-    background-color: styles.$primary-color;
+.auth_wrapper {
+    max-width: 1200px;
+    margin: 100px auto;
 }
 
 .header {
-    margin: 50px auto;
+    margin: 0 auto 50px;
     text-align: center;
-    width: 60%;
+    width: 80%;
 }
 
-.loginContainer {
-    display: flex;
-    margin: 0 auto;
+.header_title {
+    color: styles.$primary-color;
+    margin-bottom: 10px;
+    font-size: 32px;
 }
-p{
+
+.header_description {
     color: styles.$text-color;
+}
+
+.auth_container {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
 }

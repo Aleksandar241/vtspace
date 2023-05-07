@@ -12,9 +12,9 @@ const PostList: FC = (): JSX.Element => {
   const posts: PostModel[] = data?.data;
 
   return (
-    <section className={styles.post}>
+    <section>
       {posts?.map((post) => (
-        <Post key={post?.id} post={post} />
+        <Post key={post?.id} post={post}/>
       ))}
     </section>
   );

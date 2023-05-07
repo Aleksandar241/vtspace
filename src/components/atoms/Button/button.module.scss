@@ -2,12 +2,10 @@
 
 .button {
     background-color: styles.$primary-color;
-    color: styles.$text-color;
+    color: styles.$white-color;
     text-align: center;
-    width: 50%;
-    height: 39px;
-    box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid styles.$white-color;
-    margin: 10px auto;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
 }
