@@ -22,7 +22,6 @@ const UserCard: FC = (): JSX.Element => {
           {user?.name} {user?.surname}
         </h2>
         <p className={styles.user_card_description}>{user?.role}</p>
-        <Button type="button" title="Profile" />
         <Button onClick={() => setShowUserModal(true)} title="Izmeni podatke" />
         <Button onClick={() => setShowPostModal(true)} title="Kreiraj novu objavu" />
       </aside>

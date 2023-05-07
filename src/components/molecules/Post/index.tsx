@@ -29,14 +29,16 @@ const Post: FC<PostType> = ({ post }): JSX.Element => {
         <div className={styles.post_content}>
           <h2 className={styles.post_title}>{post.title}</h2>
           <p className={styles.post_description}>{post?.description}</p>
+          {post?.id && post?.belongsToId && (
+            <div className={styles.post_buttons}>
+              <Button onClick={() => setShowModal(true)} title="Edit" />
+              <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
+            </div>
+          )}
         </div>
         <Modal visible={showModal} onClose={() => setShowModal(false)}>
           <CreatePostForm post={post} onSubmitPost={() => setShowModal(false)} />
         </Modal>
-        <Button onClick={() => setShowModal(true)} title="Edit" />
-        {post?.id && post?.belongsToId && (
-          <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
-        )}
       </div>
     </article>
   );
