@@ -14,9 +14,9 @@ const LoginForm: FC = (): JSX.Element => {
           <Form className={styles.container}>
             <h3 className={styles.inputHeader}>LOGIN</h3>
             <p className={styles.inputText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consequat orci, et blandit odio. </p>
-            <Field className={styles.inputField} type="email" name="email" placeholder="email" />
+            <Field className={styles.inputField} type="email" name="email" placeholder="enter your email address" />
             <ErrorMessage name="email" component="div" />
-            <Field className={styles.inputField} type="password" name="password" placeholder="password"/>
+            <Field className={styles.inputField} type="password" name="password" placeholder="enter your password"/>
             <ErrorMessage name="password" component="div" />
             <Button type="submit" disabled={isLoading} title="Login" />
           </Form>

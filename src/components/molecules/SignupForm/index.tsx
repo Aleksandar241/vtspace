@@ -9,18 +9,19 @@ const SignupForm: FC = (): JSX.Element => {
   return (
     <>
       <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
-        <div className="signup-form">
+        <div className={styles.signupForm}>
           <Form className={styles.container}>
-            <p>SIGN UP</p>
-            <Field className="input-field" type="email" name="email"  />
+            <h3 className={styles.inputHeader}>SIGN UP</h3>
+            <p className={styles.inputText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae consequat orci, et blandit odio. </p>
+            <Field className={styles.inputField} type="email" name="email"placeholder="enter your email address" />
             <ErrorMessage name="email" component="div" />
-            <Field className="input-field" type="text" name="name" />
+            <Field className={styles.inputField} type="text" name="name"  placeholder="enter your name"/>
             <ErrorMessage name="name" component="div" />
-            <Field className="input-field" type="text" name="surname" />
+            <Field className={styles.inputField} type="text" name="surname" placeholder="enter your surname" />
             <ErrorMessage name="surname" component="div" />
-            <Field className="input-field" type="password" name="password" />
+            <Field className={styles.inputField} type="password" name="password" placeholder="enter your password"/>
             <ErrorMessage name="password" component="div" />
-            <Field className="input-field" type="password" name="confirmPassword" />
+            <Field className={styles.inputField} type="password" name="confirmPassword" placeholder="confirm your password"/>
             <ErrorMessage name="confirmPassword" component="div" />
             <Button type="submit" disabled={isLoading} title="Signup" />
           </Form>
