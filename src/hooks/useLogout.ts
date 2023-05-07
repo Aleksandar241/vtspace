@@ -5,11 +5,11 @@ import { post } from '@utils';
 import { logoutPath } from '@constants';
 
 const useLogout = () => {
-  const { setToken } = useAuth();
+  const { setUser } = useAuth();
   const { mutate } = useMutation(async () => post(logoutPath), {
-    onSuccess: () => setToken(null),
+    onSuccess: () => setUser(null),
     onError: (err: any) => {
-      toast(err?.message ?? 'Ups. Nesto nije kako treba');
+      toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
     }
   });
 

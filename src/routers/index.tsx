@@ -6,15 +6,15 @@ import ProtectedRoutes from './ProtectedRoutes';
 import AuthRoutes from './AuthRoutes';
 
 const Router: FC = (): JSX.Element => {
-  const { token } = useAuth();
+  const { user } = useAuth();
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<ProtectedRoutes token={token} />}>
+        <Route element={<ProtectedRoutes userId={user?.id} />}>
           <Route index element={<Home />} path="/" />
         </Route>
-        <Route element={<AuthRoutes token={token} />}>
+        <Route element={<AuthRoutes userId={user?.id} />}>
           <Route index element={<Auth />} path="/login" />
         </Route>
         <Route path="*" element={<NotFound />} />

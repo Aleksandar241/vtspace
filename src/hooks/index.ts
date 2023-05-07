@@ -6,6 +6,7 @@ import useLogout from './useLogout';
 import useCreateUpdatePostForm from './useCreateUpdatePostForm';
 import useUpdateUserForm from './useUpdateUserForm';
 import useDeletePost from './useDeletePost';
+import useHasPerrmision from './useHasPerrmision';
 
 export {
   useLoginForm,
@@ -15,5 +16,6 @@ export {
   useLogout,
   useCreateUpdatePostForm,
   useUpdateUserForm,
-  useDeletePost
+  useDeletePost,
+  useHasPerrmision
 };
