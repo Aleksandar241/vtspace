@@ -8,7 +8,7 @@
 }
 
 .navigation_content {
-  width: 1250px;
+  width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,4 +17,8 @@
 
 .navigation_logo {
   color: styles.$white-color;
+}
+
+.navigation button {
+  width: fit-content;
 }

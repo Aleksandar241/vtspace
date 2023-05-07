@@ -44,11 +44,12 @@
 }
 
 .post_buttons {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
 }
 
 .post_buttons button {
   margin: 0 5px;
+  max-width: fit-content;
 }

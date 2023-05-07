@@ -30,20 +30,17 @@ const Post: FC<PostType> = ({ post }): JSX.Element => {
         <div className={styles.post_content}>
           <h2 className={styles.post_title}>{post.title}</h2>
           <p className={styles.post_description}>{post?.description}</p>
-          {post?.id && post?.belongsToId && (
-            <div className={styles.post_buttons}>
-              <Button onClick={() => setShowModal(true)} title="Edit" />
+
+          <div className={styles.post_buttons}>
+            {hasPermission && <Button onClick={() => setShowModal(true)} title="Edit" />}
+            {hasPermission && post?.id && (
               <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
-            </div>
-          )}
+            )}
+          </div>
+          <Modal visible={showModal} onClose={() => setShowModal(false)}>
+            <CreatePostForm post={post} onSubmitPost={() => setShowModal(false)} />
+          </Modal>
         </div>
-        <Modal visible={showModal} onClose={() => setShowModal(false)}>
-          <CreatePostForm post={post} onSubmitPost={() => setShowModal(false)} />
-        </Modal>
-        {hasPermission && <Button onClick={() => setShowModal(true)} title="Edit" />}
-        {hasPermission && post?.id && (
-          <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
-        )}
       </div>
     </article>
   );

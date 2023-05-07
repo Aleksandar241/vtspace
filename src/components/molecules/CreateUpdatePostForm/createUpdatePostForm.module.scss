@@ -1,2 +1,19 @@
 @use '@styles' as styles;
 
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin: 0 0 10px 0;
+  width: 300px;
+  border: 1px solid styles.$primary-color;
+}
+
+button {
+  width: 100%;
+  margin-bottom: 10px;
+}
