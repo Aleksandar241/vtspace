@@ -18,7 +18,7 @@ const postCallback = ({ id, title, description, belongsToId }: PostSubmitType) =
   const callback = methodFactory(id);
   const url = id ? id : '';
 
-  return callback(`${postsPath}/${url}`, { id, title, description, belongsToId });
+  return callback(`${postsPath}${'/' + url}`, { id, title, description, belongsToId });
 };
 
 const initialValues: PostModel = {

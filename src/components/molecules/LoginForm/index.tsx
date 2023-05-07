@@ -12,7 +12,10 @@ const LoginForm: FC = (): JSX.Element => {
       <div className={styles.loginForm}>
         <Form className={styles.container}>
           <h3 className={styles.inputHeader}>Prijava</h3>
-          <p className={styles.inputText}>Pre prijave molimo da proveriti vaše email sanduče kako bi usplešno izvršili verifikaciju naloga. Nakon toga možete se prijaviti na VTSpace!</p>
+          <p className={styles.inputText}>
+            Pre prijave molimo da proveriti vaše email sanduče kako bi usplešno izvršili
+            verifikaciju naloga. Nakon toga možete se prijaviti na VTSpace!
+          </p>
           <Field type="email" className={styles.inputField} name="email" placeholder="Email" />
           <ErrorMessage name="email" component="div" />
           <Field
