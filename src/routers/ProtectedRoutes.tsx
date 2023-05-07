@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { Outlet, Navigate } from 'react-router-dom';
 
 type ProtectedRoutesProps = {
-  token?: string | null;
+  userId?: string | null;
 };
 
-const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ token }): JSX.Element => {
-  return token ? <Outlet /> : <Navigate to="/login" />;
+const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ userId }): JSX.Element => {
+  return userId ? <Outlet /> : <Navigate to="/login" />;
 };
 
 export default ProtectedRoutes;

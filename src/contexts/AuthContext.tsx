@@ -1,9 +1,13 @@
 import React, { FC, createContext } from 'react';
 import { useLocalStorage } from '@hooks';
+import { userKey } from '@constants';
+import { UserModel } from '@models';
+
+type UserType = Pick<UserModel, 'id' | 'email' | 'name' | 'role' | 'surname' | 'image'>;
 
 type AuthType = {
-  token?: string | null;
-  setToken: (token?: string | null) => void;
+  user?: UserType | null;
+  setUser: (user?: UserType | null) => void;
 };
 
 type AuthContextProviderProps = {
@@ -11,12 +15,12 @@ type AuthContextProviderProps = {
 };
 
 export const AuthContext = createContext<AuthType>({
-  token: null,
-  setToken: () => null
+  user: null,
+  setUser: () => null
 });
 
 export const AuthContextProvider: FC<AuthContextProviderProps> = ({ children }) => {
-  const [token, setToken] = useLocalStorage('token', null);
+  const [user, setUser] = useLocalStorage(userKey, null);
 
-  return <AuthContext.Provider value={{ token, setToken }}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={{ user, setUser }}>{children}</AuthContext.Provider>;
 };

@@ -8,18 +8,24 @@ import styles from './login.module.scss';
 const LoginForm: FC = (): JSX.Element => {
   const { initialValues, onSubmit, isLoading, validationScheme } = useLoginForm();
   return (
-    <>
-      <p>LOGIN</p>
-      <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
+    <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationScheme}>
+      <div className={styles.loginForm}>
         <Form className={styles.container}>
-          <Field type="email" name="email" placeholder="Email" />
+          <h3 className={styles.inputHeader}>LOGIN</h3>
+          <p className={styles.inputText}>Prijavi se</p>
+          <Field type="email" className={styles.inputField} name="email" placeholder="Email" />
           <ErrorMessage name="email" component="div" />
-          <Field type="password" name="password" placeholder="Password" />
+          <Field
+            type="password"
+            className={styles.inputField}
+            name="password"
+            placeholder="Password"
+          />
           <ErrorMessage name="password" component="div" />
           <Button type="submit" disabled={isLoading} title="Login" />
         </Form>
-      </Formik>
-    </>
+      </div>
+    </Formik>
   );
 };
 

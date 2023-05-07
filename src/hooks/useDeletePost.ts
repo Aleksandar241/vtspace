@@ -20,7 +20,7 @@ const useDeletePost = (): UseDeletePropsReturn => {
         toast(res?.data ?? 'Uspesno ste izbrisali post');
       },
       onError: (err: any) => {
-        toast(err?.message ?? 'Ups. Nesto nije kako treba');
+        toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
       }
     }
   );
