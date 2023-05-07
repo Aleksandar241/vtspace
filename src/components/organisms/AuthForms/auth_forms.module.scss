@@ -1,5 +1,23 @@
 @use '@styles' as styles;
 
+h1 {
+    color: styles.$primary-color;
+}
+
 .button {
     background-color: styles.$primary-color;
+}
+
+.header {
+    margin: 50px auto;
+    text-align: center;
+    width: 60%;
+}
+
+.loginContainer {
+    display: flex;
+    margin: 0 auto;
+}
+p{
+    color: styles.$text-color;
 }
