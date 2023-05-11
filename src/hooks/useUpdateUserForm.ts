@@ -1,6 +1,7 @@
 import { useMutation } from 'react-query';
 import { put, queryClient } from '@utils';
 import { UserModel, Roles } from '@models';
+import { userFormValidationScheme } from 'src/utils/validators';
 import { toast } from 'react-toastify';
 
 type UserSubmitType = Pick<UserModel, 'image' | 'name' | 'surname' | 'id'>;
@@ -9,6 +10,7 @@ type UseCreateUpdatePostFormReturn = {
   onSubmit: ({ id, image, name, surname }: UserModel) => void;
   isLoading: boolean;
   initialValues: UserModel;
+  validationScheme: any;
 };
 
 const initialValues: UserModel = {
@@ -35,7 +37,7 @@ const useUpdateUserForm = (): UseCreateUpdatePostFormReturn => {
   const onSubmit = ({ id, image, name, surname }: UserSubmitType) =>
     mutate({ id, image, name, surname });
 
-  return { onSubmit, isLoading, initialValues };
+  return { onSubmit, isLoading, initialValues, validationScheme: userFormValidationScheme };
 };
 
 export default useUpdateUserForm;

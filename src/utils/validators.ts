@@ -5,6 +5,8 @@ const emailRegex: RegExp =
   // eslint-disable-next-line no-useless-escape
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
+const urlRegex = /^(ftp|http|https):\/\/[^ "]+$/;
+
 const emailValidator = yup
   .string()
   .email('Email adresa nije dobra')
@@ -21,6 +23,8 @@ const confrimPasswprdValidation = yup
   .required('Potvrda password je obavezna')
   .oneOf([yup.ref('password')], 'Password se ne podudara');
 
+const imageUrlValidation = yup.string().matches(urlRegex, 'URL adresa nije dobra');
+
 export const loginValidationScheme = yup.object().shape({
   email: emailValidator,
   password: passwordValidation
@@ -32,4 +36,11 @@ export const signupValidationScheme = yup.object().shape({
   surname: yup.string().required('Prezime je obavezno polje'),
   password: passwordValidation,
   confirmPassword: confrimPasswprdValidation
+});
+
+export const userFormValidationScheme = yup.object().shape({
+  image: imageUrlValidation,
+  id: yup.string().nullable(),
+  name: yup.string().nullable(),
+  surname: yup.string().nullable()
 });

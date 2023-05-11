@@ -12,7 +12,7 @@ type UpdateUserFormType = {
 };
 
 const UpdateUserForm: FC<UpdateUserFormType> = ({ user, onSubmitUser }): JSX.Element => {
-  const { onSubmit, isLoading, initialValues } = useUpdateUserForm();
+  const { onSubmit, isLoading, initialValues, validationScheme } = useUpdateUserForm();
 
   const onSubmitHandler = useCallback((args: UserModel) => {
     onSubmit(args);
@@ -21,7 +21,10 @@ const UpdateUserForm: FC<UpdateUserFormType> = ({ user, onSubmitUser }): JSX.Ele
 
   return (
     <>
-      <Formik initialValues={user || initialValues} onSubmit={onSubmitHandler}>
+      <Formik
+        initialValues={user || initialValues}
+        onSubmit={onSubmitHandler}
+        validationSchema={validationScheme}>
         <Form className={styles.container}>
           <Field type="text" name="name" placeholder="Ime" />
           <Field type="text" name="surname" placeholder="Prezime" />
