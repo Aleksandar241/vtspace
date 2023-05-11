@@ -1,7 +1,6 @@
 import { useMutation } from 'react-query';
-import { put, queryClient } from '@utils';
+import { put, queryClient, userFormValidationScheme } from '@utils';
 import { UserModel, Roles } from '@models';
-import { userFormValidationScheme } from 'src/utils/validators';
 import { toast } from 'react-toastify';
 
 type UserSubmitType = Pick<UserModel, 'image' | 'name' | 'surname' | 'id'>;
