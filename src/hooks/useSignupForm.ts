@@ -35,7 +35,7 @@ const useSignupForm = (): UseSignupFormReturn => {
       post(signupPath, { email, password, surname, name }),
     {
       onSuccess: (res) => {
-        toast(res?.data || 'Verifikacioni mejl je poslat');
+        toast(res?.data?.message || 'Verifikacioni mejl je poslat');
       },
       onError: (err: any) => {
         toast(err.response?.data?.msg || err?.response?.data || 'Ups. Nesto nije kako treba');
