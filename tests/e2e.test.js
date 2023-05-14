@@ -37,42 +37,42 @@ describe("App flow", () => {
     expect(userCardExists).toBeTruthy();
   });
 
-  // it("should fill the user form",  async () => {
-  //   await page.goto("http://localhost:5173");
-  //   await page.waitForSelector("#user-modal-button");
-  //   await page.click("#user-modal-button");
+  it("should fill the user form",  async () => {
+    await page.goto("http://localhost:5173");
+    await page.waitForSelector("#user-modal-button");
+    await page.click("#user-modal-button");
 
-  //   await page.waitForSelector("#user-form-name");
-  //   await page.waitForSelector("#user-form-surname");
-  //   await page.waitForSelector("#user-form-img-url");
-  //   await page.waitForSelector("#user-update-button");
+    await page.waitForSelector("#user-form-name");
+    await page.waitForSelector("#user-form-surname");
+    await page.waitForSelector("#user-form-img-url");
+    await page.waitForSelector("#user-update-button");
 
-  //   await page.click("#user-form-name", { clickCount: 3 });
-  //   await page.keyboard.press("Backspace");
-  //   await page.type("#user-form-name", "Petar");
-
-
-  //   await page.click("#user-form-surname", { clickCount: 3 });
-  //   await page.keyboard.press("Backspace");
-  //   await page.type("#user-form-surname", "Petrovic"); 
-
-  //   await page.click("#user-form-img-url", { clickCount: 3 });
-  //   await page.keyboard.press("Backspace");
-  //   await page.type("#user-form-img-url", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjvLMABNQux52zWG7hmIBVCuozAB7956fRyfujhzW&s"); 
-
-  //   await page.waitForSelector("#user-update-button");
-  //   await page.click("#user-update-button");
+    await page.click("#user-form-name", { clickCount: 3 });
+    await page.keyboard.press("Backspace");
+    await page.type("#user-form-name", "Petar");
 
 
-  //   await page.waitForSelector("#user-image", { timeout: 50000, visible: true });
-  //   await page.waitForSelector("#user-name", { timeout: 50000, visible: true });
+    await page.click("#user-form-surname", { clickCount: 3 });
+    await page.keyboard.press("Backspace");
+    await page.type("#user-form-surname", "Petrovic"); 
 
-  //   const userName = await page.$eval("#user-name", (e) => e.innerHTML);
-  //   const imageSrc = await page.$eval("#user-image", (img) => img.getAttribute("src"));
+    await page.click("#user-form-img-url", { clickCount: 3 });
+    await page.keyboard.press("Backspace");
+    await page.type("#user-form-img-url", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjvLMABNQux52zWG7hmIBVCuozAB7956fRyfujhzW&s"); 
+
+    await page.waitForSelector("#user-update-button");
+    await page.click("#user-update-button");
+
+
+    await page.waitForSelector("#user-image", { timeout: 50000, visible: true });
+    await page.waitForSelector("#user-name", { timeout: 50000, visible: true });
+
+    const userName = await page.$eval("#user-name", (e) => e.innerHTML);
+    const imageSrc = await page.$eval("#user-image", (img) => img.getAttribute("src"));
   
-  //   expect(userName).toBe("Petar Petrovic"); 
-  //   expect(imageSrc).toBe("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjvLMABNQux52zWG7hmIBVCuozAB7956fRyfujhzW&s"); 
-  // });
+    expect(userName).toBe("Petar Petrovic"); 
+    expect(imageSrc).toBe("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREjvLMABNQux52zWG7hmIBVCuozAB7956fRyfujhzW&s"); 
+  });
 
 
   it("should create new post",  async () => {
