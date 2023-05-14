@@ -16,14 +16,22 @@ const UserCard: FC = (): JSX.Element => {
 
   return (
     <div>
-      <aside className={styles.user_card}>
-        <Image source={user?.image} />
-        <h2 className={styles.user_card_username}>
+      <aside className={styles.user_card} id="user-card">
+        <Image source={user?.image} id="user-image" />
+        <h2 className={styles.user_card_username} id="user-name">
           {user?.name} {user?.surname}
         </h2>
         <p className={styles.user_card_description}>{user?.role}</p>
-        <Button onClick={() => setShowUserModal(true)} title="Izmeni podatke" />
-        <Button onClick={() => setShowPostModal(true)} title="Kreiraj novu objavu" />
+        <Button
+          onClick={() => setShowUserModal(true)}
+          title="Izmeni podatke"
+          id="user-modal-button"
+        />
+        <Button
+          onClick={() => setShowPostModal(true)}
+          title="Kreiraj novu objavu"
+          id="post-modal-button"
+        />
       </aside>
       <Modal visible={showUserModal} onClose={() => setShowUserModal(false)}>
         <UpdateUserForm user={user} onSubmitUser={() => setShowUserModal(false)} />

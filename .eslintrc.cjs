@@ -24,5 +24,5 @@ module.exports = {
     "rules": {
         "react/react-in-jsx-scope": "off"
       },
-    "ignorePatterns": ["**/*.cjs"]
+    "ignorePatterns": ["**/*.cjs", "**/*test.js"]
 }

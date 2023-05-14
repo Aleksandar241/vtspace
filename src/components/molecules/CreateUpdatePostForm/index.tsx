@@ -26,12 +26,13 @@ const CreateUpdatePostForm: FC<CreateUpdatePostFormType> = ({
     <>
       <Formik initialValues={post || initialValues} onSubmit={onSubmitHandler}>
         <Form className={styles.container}>
-          <Field type="text" name="title" placeholder="Naslov" />
-          <Field type="text" name="description" placeholder="Opis" />
+          <Field type="text" name="title" placeholder="Naslov" id="post-title" />
+          <Field type="text" name="description" placeholder="Opis" id="post-description" />
           <Button
             type="submit"
             disabled={isLoading}
             title={post?.id ? 'Izmeni objavu' : 'Kreiraj objavu'}
+            id="create-new-post-button"
           />
         </Form>
       </Formik>

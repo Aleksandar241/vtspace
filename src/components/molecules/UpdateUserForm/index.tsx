@@ -26,10 +26,15 @@ const UpdateUserForm: FC<UpdateUserFormType> = ({ user, onSubmitUser }): JSX.Ele
         onSubmit={onSubmitHandler}
         validationSchema={validationScheme}>
         <Form className={styles.container}>
-          <Field type="text" name="name" placeholder="Ime" />
-          <Field type="text" name="surname" placeholder="Prezime" />
-          <Field type="text" name="image" placeholder="Url fotografije" />
-          <Button type="submit" disabled={isLoading} title="Izmeni podatke" />
+          <Field type="text" name="name" placeholder="Ime" id="user-form-name" />
+          <Field type="text" name="surname" placeholder="Prezime" id="user-form-surname" />
+          <Field type="text" name="image" placeholder="Url fotografije" id="user-form-img-url" />
+          <Button
+            type="submit"
+            disabled={isLoading}
+            title="Izmeni podatke"
+            id="user-update-button"
+          />
         </Form>
       </Formik>
     </>

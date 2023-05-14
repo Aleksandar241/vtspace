@@ -16,7 +16,7 @@ const AuthForms: FC = (): JSX.Element => {
           studijama.
         </p>
       </header>
-      <article className={styles.auth_container}>
+      <article className={styles.auth_container} id="login-form">
         <LoginForm />
         <SignupForm />
       </article>

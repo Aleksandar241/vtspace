@@ -34,7 +34,11 @@ const Post: FC<PostType> = ({ post }): JSX.Element => {
           <div className={styles.post_buttons}>
             {hasPermission && <Button onClick={() => setShowModal(true)} title="Edit" />}
             {hasPermission && post?.id && (
-              <Button onClick={() => onDelete({ id: post.id })} title="Delete" disabled={isLoading} />
+              <Button
+                onClick={() => onDelete({ id: post.id })}
+                title="Delete"
+                disabled={isLoading}
+              />
             )}
           </div>
           <Modal visible={showModal} onClose={() => setShowModal(false)}>
